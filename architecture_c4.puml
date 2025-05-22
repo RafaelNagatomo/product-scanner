@@ -1,0 +1,30 @@
+@startuml qr_code_stock_architecture_c4
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+
+Together{
+Person(userDesktop, "Usuário no Desktop", "Usuário que inicia operações via sistema web")
+    Container(frontendDesktop, "Frontend Desktop", "Next.js/React", "Interface web onde o usuário inicia a entrada/saída")
+    Container(frontendMobile, "Frontend Mobile", "React/PWA", "Interface acessada via QR Code no celular")
+}
+Together{
+    Container(apiBackend, "Backend API", "NestJS (Node.js)", "Gera QR code, cria sessão e valida operação")
+    Container(websocketServer, "WebSocket Server", "Node.js WS", "Canal de comunicação em tempo real entre desktop e celular")
+}
+ContainerDb(database, "Banco de Dados", "PostgreSQL/MongoDB", "Armazena sessões, produtos e logs")
+
+
+Rel(frontendDesktop, frontendMobile, "Aciona e recebe QR Code com Token")
+Rel(frontendMobile, frontendDesktop, "")
+
+Rel(userDesktop, frontendDesktop, "Usa")
+Rel(userDesktop, frontendMobile, "Usa")
+
+Rel(frontendDesktop, apiBackend, "Solicita criação de operação")
+Rel(apiBackend, database, "Lê/Escreve sessão")
+Rel(apiBackend, frontendDesktop, "Retorna QR code com token")
+
+Rel(frontendMobile, websocketServer, "Conecta com token")
+Rel(websocketServer, apiBackend, "Valida sessão e atualiza status")
+
+@enduml

@@ -1,0 +1,53 @@
+@startuml inventory_mvp.puml
+
+skinparam classAttributeIconSize 0
+
+class Base {
+  - id: UUID
+  - createdAt: Date
+  - updatedAt: Date
+  + CRUD()
+}
+
+class Product {
+  - name: string
+  - sku: string
+  - quantity: number
+  - unit: string
+  - price: string
+  - qrCodeUrl: string
+  + CRUD()
+}
+
+class InventoryMovement {
+  - productId: UUID
+  - type: "IN" | "OUT"
+  - quantity: number
+  - timestamp: Date
+  - source: "SYSTEM" | "MOBILE_QR"
+  + updateProduct()
+}
+
+class AuthScanSession {
+  - token: string
+  - isActive: boolean
+  - expiresAt: Date
+  + scanSessionAuthorizated()
+  + notAuthorizated()
+}
+
+class QrScanSession {
+  - authSessionId: UUID
+  - productId: UUID
+  - operation: "IN" | "OUT"
+  - status: "PENDING" | "CONFIRMED"
+  - socketRoomId: string
+  + readQr()
+}
+
+Product "1" --> "many" InventoryMovement
+AuthScanSession "1" --> "many" QrScanSession
+Product "1" --> "many" QrScanSession
+QrScanSession "1" --> "1" InventoryMovement
+
+@enduml
