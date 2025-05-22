@@ -15,7 +15,7 @@ Este sistema é ideal para pequenas empresas, ateliês de decoração ou ambient
 ---
 
 ## 🗂️ Estrutura do Monorepo
-
+```
 product-scanner/
 ├── apps/
 │ ├── api/ → Backend (Node.js, Express, TypeScript)
@@ -27,7 +27,7 @@ product-scanner/
 │
 ├── tsconfig.json → Configuração base do TypeScript
 ├── package.json → Workspaces e scripts globais
-
+```
 
 ---
 
