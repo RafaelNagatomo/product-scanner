@@ -1,4 +1,4 @@
-export enum Status {
+export enum EStatus {
     PENDING = "PENDING",
     CONFIRMED = "CONFIRMED",
 }

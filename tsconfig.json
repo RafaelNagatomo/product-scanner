@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "baseUrl": ".",
     "paths": {
       "@core/*": ["packages/core/src/*"],
-      "@db/*": ["packages/db/src/*"]
+      "@db/*": ["packages/db/src/*"],
+      "@controllers/*": ["packages/controllers/src/*"]
     },
     "declaration": true,
     "esModuleInterop": true,
