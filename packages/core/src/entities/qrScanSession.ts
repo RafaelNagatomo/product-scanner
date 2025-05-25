@@ -1,11 +1,11 @@
-import { Base } from "./base"
-import { Status } from "@core/enums/status"
-import { Operations } from "@core/enums/operations"
+import { BaseEntity } from "./base"
+import { EStatus } from "@core/enums/status"
+import { EOperations } from "@core/enums/operations"
 
-export default class QrScanSession extends Base {
+export default class QrScanSessionEntity extends BaseEntity {
     authSessionId: string
     productId: string
-    operation: Operations
-    status: Status
+    operation: EOperations
+    status: EStatus
     socketRoomId: string
 }

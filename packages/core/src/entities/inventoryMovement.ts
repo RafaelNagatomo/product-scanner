@@ -1,11 +1,11 @@
-import { Base } from "./base"
-import { Operations } from "@core/enums/operations"
-import { Sources } from "@core/enums/sources"
+import { BaseEntity } from "./base"
+import { EOperations } from "@core/enums/operations"
+import { ESources } from "@core/enums/sources"
 
-export default class InventoryMovementEntity extends Base {
+export default class InventoryMovementEntity extends BaseEntity {
     productId: string
-    operation: Operations
+    operation: EOperations
     quantity: number
     timestamp: Date
-    source: Sources
+    source: ESources
 }
