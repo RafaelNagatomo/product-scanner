@@ -5,9 +5,9 @@ export const PostgresDataSource = new DataSource({
   host: 'localhost',
   port: 5432,
   username: 'postgres',
-  password: '123456',
-  database: 'product-scanner',
+  password: 'postgres',
+  database: 'productscanner',
   synchronize: true,
   logging: false,
-  entities: ['src/entities/*.ts'],
+  entities: [__dirname + '/entities/*.ts'],
 })

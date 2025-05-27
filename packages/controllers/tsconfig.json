@@ -4,7 +4,7 @@
     "baseUrl": "./src",
     "paths": {
       "@core": ["../../core/src"],
-      "@db": ["../../db/src"]
+      "@db/*": ["../../db/src/*"]
     }
   },
   "include": ["src"],
