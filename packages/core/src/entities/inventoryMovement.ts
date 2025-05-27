@@ -3,7 +3,7 @@ import { EOperations } from "@core/enums/operations"
 import { ESources } from "@core/enums/sources"
 
 export default class InventoryMovementEntity extends BaseEntity {
-    productId: string
+    productId: number
     operation: EOperations
     quantity: number
     timestamp: Date

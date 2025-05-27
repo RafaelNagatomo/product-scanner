@@ -3,9 +3,9 @@ import { EStatus } from "@core/enums/status"
 import { EOperations } from "@core/enums/operations"
 
 export default class QrScanSessionEntity extends BaseEntity {
-    authSessionId: string
-    productId: string
+    authSessionId: number
+    productId: number
     operation: EOperations
     status: EStatus
-    socketRoomId: string
+    socketRoomId: number
 }
