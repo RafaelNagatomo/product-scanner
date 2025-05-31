@@ -7,7 +7,15 @@ export default class ProductController {
         return new ProductRepository().findAll()
     }
 
-    static async create(data: DeepPartial<Product>): Promise<Product> {
+    static async new(data: DeepPartial<Product>): Promise<Product> {
         return new ProductRepository().create(data)
+    }
+
+    static async edit(id: number, data: DeepPartial<Product>): Promise<Product | null> {
+        return new ProductRepository().update(id, data)
+    }
+
+    static async delete(id: number): Promise<boolean> {
+        return new ProductRepository().delete(id)
     }
 }
