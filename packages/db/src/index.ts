@@ -1,9 +1,14 @@
-import { PostgresDataSource } from "./dataSource"
+import { DataSource } from 'typeorm'
+import { Product } from './entities/product'
 
-PostgresDataSource.initialize()
-    .then(() => {
-        console.log("Postgres has been initialized!")
-    })
-    .catch((error) => {
-        console.error('Faled to connect to the Postgres:', error)
-    })
+export const PostgresDataSource = new DataSource({
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'postgres',
+  password: 'postgres',
+  database: 'productscanner',
+  synchronize: true,
+  logging: false,
+  entities: [Product],
+})

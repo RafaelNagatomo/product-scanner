@@ -3,7 +3,7 @@ import express, { Application } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import ApiRoutes from './routes'
-import { PostgresDataSource } from "@db/dataSource"
+import { PostgresDataSource } from "@db/index"
 
 dotenv.config()
 
@@ -30,6 +30,12 @@ export default class Server {
 
     public async start(): Promise<void> {
         await PostgresDataSource.initialize()
+            .then(() => {
+            console.log("Postgres has been initialized!")
+            })
+            .catch((error) => {
+                console.error('Faled to connect to the Postgres:', error)
+            })
 
         this.app.listen(this.port, () => {
             console.log(`Server is running on port ${this.port}...`)

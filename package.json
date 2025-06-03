@@ -21,6 +21,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
