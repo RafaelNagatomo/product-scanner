@@ -1,5 +1,5 @@
 import { Router } from "express"
-import ProductController from "@controllers/productController"
+import ProductController from "@controllers/productControllerApi"
 
 export default class ProductRoutes {
     private router: Router

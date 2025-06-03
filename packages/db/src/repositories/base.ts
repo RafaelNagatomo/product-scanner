@@ -1,4 +1,4 @@
-import { PostgresDataSource } from "@db/dataSource";
+import { PostgresDataSource } from "@db/index";
 import { DeepPartial, EntityTarget, ObjectLiteral, Repository } from "typeorm";
 
 export abstract class BaseRepository<T extends ObjectLiteral> {

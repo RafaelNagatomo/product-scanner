@@ -1,12 +1,12 @@
 import { Entity, Column } from 'typeorm'
-import { BaseEntity } from './base'
+import { AbstractBaseEntity  } from './base'
 
 @Entity()
-export class Product extends BaseEntity {
-  @Column()
+export class Product extends AbstractBaseEntity  {
+  @Column({ type: 'varchar' })
   name: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'varchar' })
   sku: string
 
   @Column('int')
@@ -15,6 +15,6 @@ export class Product extends BaseEntity {
   @Column('decimal', { precision: 10, scale: 2 })
   price: number
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'varchar' })
   qrCodeUrl: string
 }

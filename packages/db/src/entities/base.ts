@@ -6,7 +6,7 @@ import {
 } from "typeorm"
 
 @Entity()
-export abstract class BaseEntity {
+export abstract class AbstractBaseEntity  {
     @PrimaryGeneratedColumn('increment')
     id: number
 
